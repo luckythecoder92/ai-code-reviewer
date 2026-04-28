@@ -49,8 +49,7 @@ Be specific, clear, and helpful. Language: ${language || "auto-detect"}.`,
   } catch (error) {
     console.error('Error reviewing code:', error);
     res.status(500).json({
-      error: 'Failed to review code',
-      details: error.message
+      error: 'Failed to review code'
     });
   }
 };
