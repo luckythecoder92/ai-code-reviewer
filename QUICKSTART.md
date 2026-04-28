@@ -15,21 +15,23 @@ You should see:
 
 ## 2️⃣ Start the Frontend
 
-In a new terminal, run from the project root:
+Create `Frontend/.env` from `Frontend/.env.example` with:
 
 ```bash
-npx http-server Frontend -p 5000
+VITE_API_BASE_URL=http://localhost:3000
 ```
 
-Or if you have Python installed:
+Then in a new terminal run:
+
 ```bash
 cd Frontend
-python -m http.server 5000
+npm install
+npm run dev
 ```
 
 ## 3️⃣ Open in Browser
 
-Visit: **http://localhost:5000**
+Visit the local URL printed by Vite, usually **http://localhost:5173**
 
 ## 4️⃣ Start Reviewing Code!
 
@@ -57,15 +59,16 @@ The AI reviewer analyzes:
 **Backend won't start?**
 - Make sure Node.js is installed: `node --version`
 - Ensure port 3000 is not in use
-- Check .env file has the API key
+- Check `.env` has both `GROQ_API_KEY` and the correct `FRONTEND_URL`
 
 **Frontend shows errors?**
 - Make sure backend is running on port 3000
+- Make sure `Frontend/.env` points `VITE_API_BASE_URL` at the correct backend
 - Check browser console (F12) for more details
-- Try a different port if 5000 is in use
+- Try a different port if Vite's default port is in use
 
 **Reviews not working?**
-- Verify Google Gemini API key in `.env`
+- Verify your Groq API key in `.env`
 - Check internet connection
 - Try with shorter code first
 
@@ -73,7 +76,7 @@ The AI reviewer analyzes:
 
 ## 🔑 API Key
 
-Your API key is already configured in `.env`. Never share it publicly!
+Set your Groq API key in `.env`. Never share it publicly.
 
 ---
 

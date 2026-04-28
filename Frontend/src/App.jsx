@@ -8,6 +8,8 @@ import "highlight.js/styles/github-dark.css";
 import axios from 'axios'
 import './App.css'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000'
+
 function App() {
   const Editor =
     EditorModule?.default?.default ??
@@ -29,7 +31,7 @@ function App() {
   }, [])
 
   async function reviewCode() {
-    const response = await axios.post('http://localhost:3000/api/review', { code })
+    const response = await axios.post(`${API_BASE_URL}/api/review`, { code })
     setReview(
       typeof response?.data?.review === "string"
         ? response.data.review
